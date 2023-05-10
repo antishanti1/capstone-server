@@ -5,7 +5,7 @@ const app = express();
 const listingsRoute = require('./routes/listings');
 const usersRoute = require('./routes/users');
 
-dotenv.config();
+dotenv.config({ path: '.env.local' });
 
 app.use(express.json());
 
