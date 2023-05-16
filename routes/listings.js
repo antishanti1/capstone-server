@@ -25,4 +25,20 @@ router.get('/', async (req, res) => {
     }
 })
 
+//delete a listing
+    router.route("/:id").delete( async (req, res) => {
+        try {
+            const listing = await Listing.findById(req.params.id);
+            try {
+                await listing.deleteOne();
+                res.status(200).json("Listing has been deleted...");
+            } catch (err) {
+                res.status(500).json(err);
+            }
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    })
+
+
 module.exports = router;

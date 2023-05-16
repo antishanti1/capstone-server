@@ -1,12 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const app = express();
 const listingsRoute = require('./routes/listings');
 const usersRoute = require('./routes/users');
 
+
 dotenv.config({ path: '.env.local' });
 
+app.use(cors());
 app.use(express.json());
 
 mongoose
@@ -17,6 +20,8 @@ mongoose
 
 app.use('/api/listings', listingsRoute);
 app.use('/api/users', usersRoute);
+
+
 
 app.listen(5050, () => {
     console.log('Server running on port 5050')

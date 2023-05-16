@@ -6,6 +6,11 @@ const listingSchema = new mongoose.Schema({
     type: String,
     require: true,
    },
+   category: {
+    type: String,
+    require: true,
+    min: 3,
+   },
     title: {
         type: String,
         require: true,
@@ -36,11 +41,11 @@ const listingSchema = new mongoose.Schema({
         default: Date.now,
         require: true,
     },
-    latitude: {
+    lat: {
         type: Number,
         require: true,
     },
-    longitude: {
+    lng: {
         type: Number,
         require: true,
     },
