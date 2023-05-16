@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const app = express();
 const listingsRoute = require('./routes/listings');
 const usersRoute = require('./routes/users');
-
+const port = process.env.PORT || 5050;
 
 dotenv.config({ path: '.env.local' });
 
@@ -23,6 +23,6 @@ app.use('/api/users', usersRoute);
 
 
 
-app.listen(5050, () => {
-    console.log('Server running on port 5050')
+app.listen(port, () => {
+    console.log('Server running on port ${port}')
 } );
